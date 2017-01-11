@@ -11,7 +11,7 @@ public class OrbController : MonoBehaviour {
 	public float orbHeight_T0   = 2.25f;
 	public float orbRadius_T0   = 0.25f;
 	public float orbPit_T0      = 0.0f;
-	public float orbRotVel_T1   = 10.0f;
+	public float orbRotVel_T1   = 240.0f;
 	public float orbHeight_T1   = 1.0f;
 	public float orbRadius_T1   = 2.0f;
 	public float orbPit_T1      = 20.0f;
@@ -67,7 +67,7 @@ public class OrbController : MonoBehaviour {
 			Vector3 orbUp      = Quaternion.AngleAxis (orbPit, transform.right) * transform.up;
 
 			// 回転
-			orbRot += orbRotVel;
+			orbRot += orbRotVel * Time.deltaTime;
 			orbForward = Quaternion.AngleAxis (orbRot, orbUp) * orbForward;
 
 			for (int i = 0; i < orbNum; ++i) {
